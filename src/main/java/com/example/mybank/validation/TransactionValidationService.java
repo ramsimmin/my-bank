@@ -30,10 +30,10 @@ public class TransactionValidationService {
         Optional<Account> targetAccount = accountRepository.findById(transactionRegisterDTO.getTargetAccountId());
 
         // AC 4: One or more of the accounts does not exist
-        if (!sourceAccount.isPresent()) {
+        if (sourceAccount.isEmpty()) {
             errorMessages.add("Source account id does not exist");
         }
-        if (!targetAccount.isPresent()) {
+        if (targetAccount.isEmpty()) {
             errorMessages.add("Target account id does not exist");
         }
 
