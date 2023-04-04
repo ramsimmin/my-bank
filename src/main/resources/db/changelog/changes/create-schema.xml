@@ -1,0 +1,49 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="aparissi (generated)" id="1680594691933-1">
+        <createTable tableName="ACCOUNT">
+            <column name="ID" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CONSTRAINT_E4"/>
+            </column>
+            <column name="BALANCE" type="DOUBLE PRECISION">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_AT" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="CURRENCY" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aparissi (generated)" id="1680594691933-2">
+        <createTable tableName="TRANSACTION">
+            <column name="ID" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CONSTRAINT_F"/>
+            </column>
+            <column name="AMOUNT" type="DOUBLE PRECISION"/>
+            <column name="CREATED_AT" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="CURRENCY" type="VARCHAR(255)"/>
+            <column name="SOURCE_ACCOUNT_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TARGET_ACCOUNT_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aparissi (generated)" id="1680594691933-3">
+        <createIndex indexName="FK25E716UKPQAHTTJT6C487LRER_INDEX_F" tableName="TRANSACTION">
+            <column name="SOURCE_ACCOUNT_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="aparissi (generated)" id="1680594691933-4">
+        <createIndex indexName="FKMJ1OS7UXMI54BUHN6TVRO5I6J_INDEX_F" tableName="TRANSACTION">
+            <column name="TARGET_ACCOUNT_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="aparissi (generated)" id="1680594691933-5">
+        <addForeignKeyConstraint baseColumnNames="SOURCE_ACCOUNT_ID" baseTableName="TRANSACTION" constraintName="FK25E716UKPQAHTTJT6C487LRER" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="ACCOUNT" validate="true"/>
+    </changeSet>
+    <changeSet author="aparissi (generated)" id="1680594691933-6">
+        <addForeignKeyConstraint baseColumnNames="TARGET_ACCOUNT_ID" baseTableName="TRANSACTION" constraintName="FKMJ1OS7UXMI54BUHN6TVRO5I6J" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="ACCOUNT" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

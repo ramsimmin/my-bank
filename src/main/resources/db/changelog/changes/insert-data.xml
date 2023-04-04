@@ -1,0 +1,37 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="aparissi (generated)" id="1680594691933-7">
+        <insert tableName="ACCOUNT">
+            <column name="ID" value="b55c31d4-9d88-4746-a03c-d8b20a249a3c"/>
+            <column name="BALANCE" value="1000"/>
+            <column name="CURRENCY" value="EUR"/>
+            <column name="CREATED_AT" value="now()"/>
+        </insert>
+
+        <insert tableName="ACCOUNT">
+            <column name="ID" value="8c65a955-7606-4010-8278-e7ccd25d0fdb"/>
+            <column name="BALANCE" value="200"/>
+            <column name="CURRENCY" value="EUR"/>
+            <column name="CREATED_AT" value="now()"/>
+        </insert>
+
+        <insert tableName="ACCOUNT">
+            <column name="ID" value="252b9a78-41c3-48fc-bb8b-7104d370b86e"/>
+            <column name="BALANCE" value="0"/>
+            <column name="CURRENCY" value="EUR"/>
+            <column name="CREATED_AT" value="now()"/>
+        </insert>
+
+        <insert tableName="TRANSACTION">
+            <column name="ID" value="252b9a78-41c3-48fc-bb8b-7104d3701234"/>
+            <column name="SOURCE_ACCOUNT_ID" value="b55c31d4-9d88-4746-a03c-d8b20a249a3c"/>
+            <column name="TARGET_ACCOUNT_ID" value="8c65a955-7606-4010-8278-e7ccd25d0fdb"/>
+            <column name="AMOUNT" value="100"/>
+            <column name="CURRENCY" value="EUR"/>
+            <column name="CREATED_AT" value="now()"/>
+        </insert>
+
+
+    </changeSet>
+
+</databaseChangeLog>
