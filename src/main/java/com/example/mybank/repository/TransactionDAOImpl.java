@@ -24,7 +24,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 
     @Override
     public TransactionDTO save(TransactionDTO transactionDTO) {
-        Transaction transaction =  transactionRepository.save(transactionMapper.dtoToEntity(transactionDTO));
+        Transaction transaction = transactionRepository.save(transactionMapper.dtoToEntity(transactionDTO));
         return transactionMapper.entityToDto(transaction);
     }
 

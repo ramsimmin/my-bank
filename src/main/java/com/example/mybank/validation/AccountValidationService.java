@@ -1,6 +1,6 @@
 package com.example.mybank.validation;
 
-import com.example.mybank.common.CommonValidation;
+import com.example.mybank.common.CommonValidations;
 import com.example.mybank.dto.AccountRegisterDTO;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
@@ -12,12 +12,12 @@ import java.util.Set;
 @Service
 @RequiredArgsConstructor
 public class AccountValidationService {
-    private final CommonValidation commonValidation;
+    private final CommonValidations commonValidations;
 
     public Set<String> validateAccountRegistration(AccountRegisterDTO accountRegisterDTO) {
         Set<String> errorMessages = new HashSet<>();
         validateBalance(accountRegisterDTO, errorMessages);
-        commonValidation.validateCurrency(accountRegisterDTO.getCurrency(), errorMessages);
+        commonValidations.validateCurrency(accountRegisterDTO.getCurrency(), errorMessages);
         return errorMessages;
     }
 
@@ -29,7 +29,7 @@ public class AccountValidationService {
                 double balance = Double.parseDouble(accountRegisterDTO.getBalance());
                 if (balance <= 0) {
                     errorMessages.add("balance must be a positive number");
-                } else if (!commonValidation.validDecimalPlaces(accountRegisterDTO.getBalance())) {
+                } else if (!commonValidations.validDecimalPlaces(accountRegisterDTO.getBalance())) {
                     errorMessages.add("balance must be a number with maximum 2 decimal places");
                 }
             } catch (Exception e) {

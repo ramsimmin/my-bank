@@ -2,7 +2,6 @@ package com.example.mybank.openapi;
 
 import com.example.mybank.dto.AccountDTO;
 import com.example.mybank.dto.AccountRegisterDTO;
-import com.example.mybank.service.AccountService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -11,7 +10,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -52,7 +50,7 @@ public interface AccountControllerOpenApiSpec {
             @ApiResponse(responseCode = "200", description = "Successful operation",
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(ref = "#/components/schemas/AccountDTO"),
-                            examples = @ExampleObject(value = responseAccountCreationExample )
+                            examples = @ExampleObject(value = responseAccountCreationExample)
                     )}
             ),
             @ApiResponse(responseCode = "400", description = "Bad Request",

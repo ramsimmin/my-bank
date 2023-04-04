@@ -1,15 +1,11 @@
 package com.example.mybank.service;
 
-import com.example.mybank.dto.AccountDTO;
 import com.example.mybank.dto.TransactionDTO;
 import com.example.mybank.dto.TransactionRegisterDTO;
 import com.example.mybank.entity.Account;
-import com.example.mybank.entity.Transaction;
 import com.example.mybank.enums.CurrencyCode;
-import com.example.mybank.mapper.TransactionMapper;
 import com.example.mybank.repository.AccountRepository;
 import com.example.mybank.repository.TransactionDAO;
-import com.example.mybank.repository.TransactionRepository;
 import com.example.mybank.validation.TransactionValidationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,11 +13,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -43,8 +36,8 @@ public class TransactionService {
     public ResponseEntity<List<TransactionDTO>> getTransactions(String sourceAccountId,
                                                                 String targetAccountId) {
         List<TransactionDTO> transactionDTOList;
-        if (StringUtils.isNotBlank(sourceAccountId) && StringUtils.isNotBlank(targetAccountId) ) {
-            transactionDTOList = transactionDAO.findTransactionsBySourceAccountIdAndTargetAccountId(sourceAccountId,targetAccountId);
+        if (StringUtils.isNotBlank(sourceAccountId) && StringUtils.isNotBlank(targetAccountId)) {
+            transactionDTOList = transactionDAO.findTransactionsBySourceAccountIdAndTargetAccountId(sourceAccountId, targetAccountId);
             return ResponseEntity.ok(transactionDTOList);
         }
 
@@ -74,6 +67,7 @@ public class TransactionService {
 
     /**
      * TODO Alternatively @Version for optimistic locking can be used
+     *
      * @param transactionRegisterDTO the transaction to be created
      * @return the result transaction dto
      */

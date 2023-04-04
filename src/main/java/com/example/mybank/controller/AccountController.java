@@ -4,7 +4,6 @@ import com.example.mybank.dto.AccountDTO;
 import com.example.mybank.dto.AccountRegisterDTO;
 import com.example.mybank.openapi.AccountControllerOpenApiSpec;
 import com.example.mybank.service.AccountService;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController()
+@RestController
 @RequestMapping(value = "api/accounts/")
 @RequiredArgsConstructor
 public class AccountController implements AccountControllerOpenApiSpec {

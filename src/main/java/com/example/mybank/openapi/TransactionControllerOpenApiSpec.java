@@ -2,7 +2,6 @@ package com.example.mybank.openapi;
 
 import com.example.mybank.dto.TransactionDTO;
 import com.example.mybank.dto.TransactionRegisterDTO;
-import com.example.mybank.service.TransactionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -11,10 +10,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -40,12 +41,12 @@ public interface TransactionControllerOpenApiSpec {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful operation",
                     content = {@Content(mediaType = "application/json",
-                            schema = @Schema(ref = "#/components/schemas/TransactionDTO")                    )}
+                            schema = @Schema(ref = "#/components/schemas/TransactionDTO"))}
             ),
             @ApiResponse(responseCode = "400", description = "Bad Request",
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = List.class),
-                            examples =  {
+                            examples = {
                                     @ExampleObject(name = "Insufficient balance", value = "[\"Insufficient balance to process money transfer\"]"),
                                     @ExampleObject(name = "Transfer between same account", value = "[\"Source and target account ids must be different\"]"),
                                     @ExampleObject(name = "Invalid account", value = "[\"Source account id does not exist\", \"Target account id does not exist\"]"),

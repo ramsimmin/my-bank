@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Set;
 
 @Component
-public class CommonValidation {
+public class CommonValidations {
 
     public void validateCurrency(String currency, Set<String> errorMessages) {
         if (StringUtils.isBlank(currency)) {
@@ -25,7 +25,7 @@ public class CommonValidation {
     public boolean validDecimalPlaces(String amountStr) {
         if (amountStr.indexOf(".") > -1) {
             String decimalPlaces = amountStr.substring(amountStr.indexOf(".") + 1, amountStr.length());
-            return decimalPlaces.length() < 2 ;
+            return decimalPlaces.length() < 2;
         }
         return true;
     }

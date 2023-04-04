@@ -1,7 +1,6 @@
 package com.example.mybank.dto;
 
 
-import com.example.mybank.entity.Transaction;
 import com.example.mybank.enums.CurrencyCode;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -11,7 +10,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.Instant;
-import java.util.List;
 
 
 @Data

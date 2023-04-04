@@ -11,7 +11,9 @@ import java.util.List;
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface AccountMapper {
     Account dtoToEntity(AccountDTO accountDTO);
+
     AccountDTO entityToDto(Account account);
+
     List<AccountDTO> entitiesToDtos(List<Account> accountEntities);
 
 }

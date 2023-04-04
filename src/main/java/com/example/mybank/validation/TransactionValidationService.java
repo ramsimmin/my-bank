@@ -1,6 +1,6 @@
 package com.example.mybank.validation;
 
-import com.example.mybank.common.CommonValidation;
+import com.example.mybank.common.CommonValidations;
 import com.example.mybank.dto.TransactionRegisterDTO;
 import com.example.mybank.entity.Account;
 import com.example.mybank.repository.AccountRepository;
@@ -16,7 +16,7 @@ import java.util.Set;
 public class TransactionValidationService {
 
     private final AccountRepository accountRepository;
-    private final CommonValidation commonValidation;
+    private final CommonValidations commonValidations;
 
     public Set<String> validateTransactionRegistration(TransactionRegisterDTO transactionRegisterDTO) {
         Set<String> errorMessages = new LinkedHashSet<>();
@@ -43,7 +43,7 @@ public class TransactionValidationService {
         }
 
         // Validate Currency
-        commonValidation.validateCurrency(transactionRegisterDTO.getCurrency(), errorMessages);
+        commonValidations.validateCurrency(transactionRegisterDTO.getCurrency(), errorMessages);
 
         if (errorMessages.isEmpty() && sourceAccount.isPresent() && targetAccount.isPresent()) {
             if (sourceAccount.get().getId().equals(targetAccount.get().getId())) {
@@ -65,7 +65,7 @@ public class TransactionValidationService {
             double amount = Double.parseDouble(transactionRegisterDTO.getAmount());
             if (amount <= 0) {
                 return false;
-            } else if (!commonValidation.validDecimalPlaces(transactionRegisterDTO.getAmount())) {
+            } else if (!commonValidations.validDecimalPlaces(transactionRegisterDTO.getAmount())) {
                 errorMessages.add("amount must be a number with maximum 2 decimal places");
                 return false;
             }

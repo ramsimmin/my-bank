@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class AccountDAOImpl implements AccountDAO{
+public class AccountDAOImpl implements AccountDAO {
     private final AccountRepository accountRepository;
 
     private final AccountMapper accountMapper;

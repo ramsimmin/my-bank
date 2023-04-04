@@ -1,6 +1,6 @@
 package com.example.mybank.validation;
 
-import com.example.mybank.common.CommonValidation;
+import com.example.mybank.common.CommonValidations;
 import com.example.mybank.dto.TransactionRegisterDTO;
 import com.example.mybank.entity.Account;
 import com.example.mybank.enums.CurrencyCode;
@@ -16,7 +16,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import java.util.Optional;
 import java.util.Set;
 
-@SpringBootTest(classes = {TransactionValidationService.class, CommonValidation.class})
+@SpringBootTest(classes = {TransactionValidationService.class, CommonValidations.class})
 class TransactionValidationServiceTest {
 
     @Autowired
@@ -26,7 +26,7 @@ class TransactionValidationServiceTest {
     AccountRepository accountRepository;
 
     @Autowired
-    CommonValidation commonValidation;
+    CommonValidations commonValidations;
 
     private final String richId = "afb85a91-c64a-4f6d-bcd7-c6f6315c8015";
     private final String poorId = "47537a26-3c82-45b8-820b-47c8f50a31e8";

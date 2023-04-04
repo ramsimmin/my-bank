@@ -2,9 +2,7 @@ package com.example.mybank.service;
 
 import com.example.mybank.dto.AccountDTO;
 import com.example.mybank.dto.AccountRegisterDTO;
-import com.example.mybank.entity.Account;
 import com.example.mybank.enums.CurrencyCode;
-import com.example.mybank.mapper.AccountMapper;
 import com.example.mybank.repository.AccountDAO;
 import com.example.mybank.validation.AccountValidationService;
 import lombok.RequiredArgsConstructor;

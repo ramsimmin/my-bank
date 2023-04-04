@@ -14,16 +14,16 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @SpringBootTest
-class CommonValidationTest {
+class CommonValidationsTest {
 
     @MockBean
-    CommonValidation commonValidation;
+    CommonValidations commonValidations;
 
     @Test
     void testCurrencyAcceptedValues() {
         Set<String> expectedErrorMessages = Set.of("currency must be one of [EUR, USD, GBP]");
         Set<String> errorMessages = new HashSet<>();
-        commonValidation.validateCurrency("abc", errorMessages);
+        commonValidations.validateCurrency("abc", errorMessages);
         Assertions.assertTrue(expectedErrorMessages.containsAll(errorMessages));
     }
 
@@ -31,7 +31,7 @@ class CommonValidationTest {
     void testCurrencyNotEmpty() {
         Set<String> expectedErrorMessages = Set.of("currency must be provided");
         Set<String> errorMessages = new HashSet<>();
-        commonValidation.validateCurrency("", errorMessages);
+        commonValidations.validateCurrency("", errorMessages);
         Assertions.assertTrue(expectedErrorMessages.containsAll(errorMessages));
     }
 
@@ -39,7 +39,7 @@ class CommonValidationTest {
     void testCurrencyNotBlank() {
         Set<String> expectedErrorMessages = Set.of("currency must be provided");
         Set<String> errorMessages = new HashSet<>();
-        commonValidation.validateCurrency("    ", errorMessages);
+        commonValidations.validateCurrency("    ", errorMessages);
         Assertions.assertTrue(expectedErrorMessages.containsAll(errorMessages));
     }
 
@@ -47,14 +47,14 @@ class CommonValidationTest {
     void testCurrencyNotNull() {
         Set<String> expectedErrorMessages = Set.of("currency must be provided");
         Set<String> errorMessages = new HashSet<>();
-        commonValidation.validateCurrency(null, errorMessages);
+        commonValidations.validateCurrency(null, errorMessages);
         Assertions.assertTrue(expectedErrorMessages.containsAll(errorMessages));
     }
 
     @ParameterizedTest
     @MethodSource("provideInvalidAmountDecimalPlaces")
     public void testInvalidAmount(String input) {
-        assertFalse(commonValidation.validDecimalPlaces(input) , "Input: " + input + " expected to be invalid");
+        assertFalse(commonValidations.validDecimalPlaces(input) , "Input: " + input + " expected to be invalid");
     }
 
     private static List<String> provideInvalidAmountDecimalPlaces() {

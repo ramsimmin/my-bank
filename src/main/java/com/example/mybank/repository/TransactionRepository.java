@@ -7,7 +7,9 @@ import java.util.List;
 
 public interface TransactionRepository extends JpaRepository<Transaction, String> {
     List<Transaction> findTransactionsBySourceAccountIdAndTargetAccountId(String sourceAccountId, String targetAccountId);
+
     List<Transaction> findTransactionsBySourceAccountId(String sourceAccountId);
+
     List<Transaction> findTransactionsByTargetAccountId(String targetAccountId);
 
 }

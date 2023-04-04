@@ -1,12 +1,8 @@
 package com.example.mybank.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 
@@ -23,24 +19,26 @@ public class Transaction {
     @Column(name = "source_account_id", nullable = false)
     @Basic
     private String sourceAccountId;
+
     @Column(name = "target_account_id", nullable = false)
     @Basic
     private String targetAccountId;
 
     @ManyToOne
-    @JoinColumn(name="source_account_id", referencedColumnName = "id", insertable=false, updatable=false)
+    @JoinColumn(name = "source_account_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Account sourceAccount;
 
     @ManyToOne
-    @JoinColumn(name="target_account_id", referencedColumnName = "id", insertable=false, updatable=false)
+    @JoinColumn(name = "target_account_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Account targetAccount;
 
     private Double amount;
+
     private String currency;
+
     @Column(updatable = false)
     @CreationTimestamp
     private Instant createdAt;
-
 
 
 }
