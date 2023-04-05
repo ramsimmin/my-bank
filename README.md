@@ -6,13 +6,15 @@ This project provides a basic API that allows users to create, read and update a
 The project is built on top of the Spring Boot framework and uses a relational database to store the account and transaction data.
 In this project, the following endpoints are implemented:
 
-`GET     /api/accounts/list: retrieves a list of all accounts`  
-`POST    /api/accounts/create: creates a new account`  
-`PUT     /api/accounts/update/{id}: updates an existing account`  
- 
-`GET     /api/transactions/list: retrieves a list of all transactions`  
-`GET     /api/transactions/listByAccount: retrieves a transaction by source or target account id provided as parameters`   
-`POST    /api/transactions/create: creates a new transaction between two accounts`  
+| HTTP Method | Path                            | Summary                                                                       |
+|-------------|---------------------------------|-------------------------------------------------------------------------------|
+| GET         | /api/accounts/list              | Retrieves a list of all account                                               |
+| POST        | /api/accounts/create            | Creates a new account                                                         |
+| PUT         | /api/accounts/update/{id}       | Updates an existing account                                                   |
+| GET         | /api/transactions/list          | Retrieves a list of all transactions                                          |
+| GET         | /api/transactions/listByAccount | Retrieves a transaction by source or target account id provided as parameters |
+| POST        | /api/transactions/create        | Creates a new transaction between two accounts                                |
+
 
 
 If you're using Postman, you can import the collection located under:
