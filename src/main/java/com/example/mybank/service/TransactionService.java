@@ -66,7 +66,8 @@ public class TransactionService {
 
 
     /**
-     * TODO Alternatively @Version for optimistic locking can be used
+     * TODO: Alternatively @Version for optimistic locking can be used
+     * TODO: A currency-exchange service should be used to convert amounts in different currencies between accounts
      *
      * @param transactionRegisterDTO the transaction to be created
      * @return the result transaction dto

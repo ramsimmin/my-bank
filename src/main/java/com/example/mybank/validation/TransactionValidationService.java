@@ -56,6 +56,7 @@ public class TransactionValidationService {
         }
     }
 
+    //TODO normally the transaction currency should be considered in this validation
     private boolean isSufficientBalance(Account sourceAccount, Double amount) {
         return sourceAccount.getBalance() - amount >= 0;
     }
