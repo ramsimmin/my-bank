@@ -52,3 +52,12 @@ http://localhost:8080/openapi/swagger-ui/index.html
 ## Tests
 The project also includes several tests for the API endpoints and database integration. JUnit and Mockito frameworks have been used for unit testing.
 Tests run on their own H2 database file configured in: `src/test/resources/application.properties`
+
+## Using docker 
+
+Build the app image   
+`docker build -t my-bank-app . `
+
+Run the container  
+`docker run -p 8080:8080 -d my-bank-app`
+
