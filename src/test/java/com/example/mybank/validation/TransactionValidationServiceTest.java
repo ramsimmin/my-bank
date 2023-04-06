@@ -97,6 +97,13 @@ class TransactionValidationServiceTest {
         Assertions.assertTrue(expectedErrorMessages.containsAll(errorMessages));
     }
 
+    @Test
+    void testTransactionInconsistentCurrencies() {
+        Set<String> expectedErrorMessages = Set.of("Transactions between accounts with different currencies is not yet supported. Transaction currency must be the same as the accounts currencies.");
+        TransactionRegisterDTO dto = TransactionRegisterDTO.builder().sourceAccountId(poorId).targetAccountId(richId).amount("100").currency(CurrencyCode.USD.name()).build();
+        Set<String> errorMessages = transactionValidationService.validateTransactionRegistration(dto);
+        Assertions.assertTrue(expectedErrorMessages.containsAll(errorMessages));
+    }
 
 
 
